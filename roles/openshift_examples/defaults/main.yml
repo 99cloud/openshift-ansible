@@ -25,6 +25,7 @@ registry_host: "{{ openshift_examples_registryurl.split('/')[0] if '.' in opensh
 satellite_prefix: "{{ openshift_examples_registryurl.split('$')[0] if '.' in openshift_examples_registryurl.split('$')[0] else '' }}"
 
 openshift_hosted_images_dict:
-  origin: 'docker.io/openshift/origin-${component}:${version}'
+  # 99cloud official image repository
+  origin: 'docker.io/99cloud/origin-${component}:${version}'
   openshift-enterprise: 'registry.redhat.io/openshift3/ose-${component}:${version}'
 openshift_examples_registryurl: "{{ oreg_url | default(openshift_hosted_images_dict[openshift_deployment_type]) }}"

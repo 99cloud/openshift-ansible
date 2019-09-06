@@ -650,8 +650,8 @@ def lib_utils_oo_oreg_image(image_default, oreg_url):
        oreg_url should be passed in as string "None" if undefined.
 
        Example input:  "quay.io/coreos/etcd:v99",
-                       "example.com/openshift/origin-${component}:${version}"
-       Example output: "example.com/coreos/etcd:v99"'''
+                       "example.com/99cloud/origin-${component}:${version}"
+       Example output: "example.com/99cloud/etcd:v99"'''
     # if no oreg_url is specified, we just return the original default
     if oreg_url == 'None':
         return image_default
@@ -665,7 +665,7 @@ def lib_utils_oo_oreg_image(image_default, oreg_url):
     image_parts = image_default.split('/')
     if len(image_parts) < 3:
         raise errors.AnsibleFilterError("default image dictionary malformed, do not adjust this value.")
-    return '/'.join([oreg_parts[0], image_parts[1], image_parts[2]])
+    return '/'.join([oreg_parts[0], oreg_parts[1], image_parts[2]])
 
 
 def lib_utils_oo_list_of_dict_to_dict_from_key(input_list, keyname):
