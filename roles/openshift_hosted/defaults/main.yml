@@ -21,8 +21,8 @@ openshift_config_base: "/etc/origin"
 openshift_cluster_domain: 'cluster.local'
 
 openshift_hosted_images_dict:
-  # 99cloud official image repository
-  origin: 'docker.io/99cloud/origin-${component}:${version}'
+  # {{ Organizations }} official image repository
+  origin: 'docker.io/{{ Organizations }}/origin-${component}:${version}'
   openshift-enterprise: 'registry.redhat.io/openshift3/ose-${component}:${version}'
 
 ##########
